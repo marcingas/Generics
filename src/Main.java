@@ -18,12 +18,12 @@ public class Main {
         TeamNotGeneric warszawa2 = new TeamNotGeneric("Legia Warszawa");
         scoreResult(wisla2, 3, warszawa2, 5);
 
-        Team<BaseballPlayer> wisla = new Team<>("Wisła Kraków");
-        Team<BaseballPlayer> warszawa = new Team<BaseballPlayer>("Legia Warszawa");
+        Team<BaseballPlayer, Affiliation> wisla = new Team<>("Wisła Kraków");
+        Team<BaseballPlayer, Affiliation> warszawa = new Team<BaseballPlayer, Affiliation>("Legia Warszawa");
         scoreResult(wisla, 3, warszawa, 5);
 
-        Team<FootballPlayer> wisla3 = new Team<>("Wisła Kraków");
-        Team<FootballPlayer> warszawa3 = new Team<>("Legia Warszawa");
+        Team<FootballPlayer, Affiliation> wisla3 = new Team<>("Wisła Kraków");
+        Team<FootballPlayer, Affiliation> warszawa3 = new Team<>("Legia Warszawa");
         scoreResult(wisla3, 3, warszawa3, 5);
         var krzynowek = new FootballPlayer("Krzynówek", "emeryt");
         wisla3.addTeamMember(krzynowek);
@@ -36,7 +36,10 @@ public class Main {
         wisla.listTeamMembers();
 
         TeamNotGeneric koszarawa = new TeamNotGeneric("Koszarawa not generic Żywiec");
-        Team<FootballPlayer> koszarawa1 = new Team<>("Koszarawa1 generic  Żywiec");
+
+
+        var kosz = new Affiliation("city", "Śląskie, SK","PL");
+        Team<FootballPlayer, Affiliation> koszarawa1 = new Team<>("Koszarawa1 generic  Żywiec",kosz);
         var kubaN = new FootballPlayer("Kuba Piłkarz", "Napastink");
         koszarawa.addTeamMember(kubaN);
         koszarawa.addTeamMember(kuba);
@@ -46,7 +49,9 @@ public class Main {
         var roy = new FootballPlayer("Rory Laird","Midfield");
         koszarawa1.addTeamMember(roy);
 
-        Team<VolleyballPlayer> chorzow = new Team<>("GKS Chorzów");
+        var chorz = new Affiliation("city","Silesia area, SK", "PL");
+
+        Team<VolleyballPlayer, Affiliation> chorzow = new Team<>("GKS Chorzów",chorz);
         chorzow.addTeamMember(new VolleyballPlayer("Nick Footballer","Second attacker"));
         chorzow.listTeamMembers();
         scoreResult(chorzow,1,koszarawa1,2);
